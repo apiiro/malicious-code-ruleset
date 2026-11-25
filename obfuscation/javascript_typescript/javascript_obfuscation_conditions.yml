@@ -6,7 +6,11 @@ rules:
       - pattern-either:
           - pattern: if ($VAR) { ... }
           - pattern: while ($VAR) { ... }
-          - pattern: switch ($VAR) { case ... }
+          - patterns:
+              - pattern: 'switch ($VAR) {}'
+              - metavariable-regex:
+                  metavariable: $VAR
+                  regex: ^(?![\s(]*true[\s)]*$)
       - metavariable-regex:
           metavariable: $VAR
           # Match all non-literals, or the listed literals.
