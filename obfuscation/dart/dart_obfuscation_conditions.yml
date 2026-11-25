@@ -11,7 +11,7 @@ rules:
               - pattern: 'switch ($VAR) {}'
               - metavariable-regex:
                   metavariable: $VAR
-                  regex: ^(?!\(*true\)*$)
+                  regex: ^(?![\s(]*true[\s)]*$)
       - metavariable-regex:
           metavariable: $VAR
           # Match all non-literals, or the listed literals.
