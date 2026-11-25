@@ -12,6 +12,15 @@ rules:
                     $P.$RUN('dart', ['-e', ...]);
                     ...
                   }
+              - patterns:
+                  - pattern: $P.$RUN('dart', ['-e', ...]);
+                  - pattern-either:
+                      - pattern-inside: |
+                          final $P = Process;
+                          ...
+                      - pattern-inside: |
+                          $TYPE $P = Process;
+                          ...
           - metavariable-pattern:
               metavariable: $RUN
               pattern-regex: (run|runSync|start)
