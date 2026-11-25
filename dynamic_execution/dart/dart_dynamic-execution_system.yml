@@ -5,12 +5,17 @@ rules:
           - pattern-either:
               - pattern: Process.$RUN('dart', ['-e', ...]);
               - pattern: |
-                  $P = Process;
-                  ...
-                  $P.$RUN('dart', ['-e', ...]);
+                  {
+                    ...
+                    $P = Process;
+                    ...
+                    $P.$RUN('dart', ['-e', ...]);
+                    ...
+                  }
           - metavariable-pattern:
               metavariable: $RUN
               pattern-regex: (run|runSync|start)
+          - focus-metavariable: $RUN
     message: Dynamic execution by system commands.
     severity: ERROR
     languages:

@@ -3,7 +3,6 @@ rules:
     patterns:
       - pattern-either:
           - pattern: class $VAR { ... }
-          - pattern: class $VAR
           - pattern: interface $VAR { ... }
           - pattern: enum $VAR { ... }
           - pattern: $TYPE $VAR = ...;
