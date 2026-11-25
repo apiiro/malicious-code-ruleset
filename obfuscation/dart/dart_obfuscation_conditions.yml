@@ -9,7 +9,9 @@ rules:
           - pattern: while ($VAR) { ... }
           - patterns:
               - pattern: 'switch ($VAR) {}'
-              - pattern-not: 'switch (true) {}'
+              - metavariable-regex:
+                  metavariable: $VAR
+                  regex: ^(?!\(*true\)*$)
       - metavariable-regex:
           metavariable: $VAR
           # Match all non-literals, or the listed literals.

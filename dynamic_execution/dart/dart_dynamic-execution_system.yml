@@ -21,6 +21,9 @@ rules:
                       - pattern-inside: |
                           $TYPE $P = Process;
                           ...
+                      - pattern-inside: |
+                          const $P = Process;
+                          ...
           - metavariable-pattern:
               metavariable: $RUN
               pattern-regex: (run|runSync|start)
